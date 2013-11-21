@@ -1,0 +1,10 @@
+Practice for an OO Ruby Program.
+
+Commands:
+user <name> -- Adds a user
+add <name> <number> -- Adds a credit card to a user
+pay <actor> <target> <amount> <note> -- Creates a transaction between two users. Amount must be in the for $x.xx
+balance <name> -- Outputs the balance of a user's account
+feed <name> -- Outputs all the transactions of a user
+
+Also accepts a file as a command line argument to the executable in the bin folder
