@@ -1,0 +1,5 @@
+pay Quincy Thomas $14.50 a redbull vodka
+feed Quincy
+balance Quincy
+feed Thomas
+feed Lisa
