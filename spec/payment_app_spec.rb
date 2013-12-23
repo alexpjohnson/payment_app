@@ -130,6 +130,18 @@ describe 'PaymentApp' do
 		end
 	end
 
+  describe 'comment' do
+    it 'should accept a comment on a payment'
+			@app = PaymentApp.new
+			@app.parse_line('user Frank')
+			@app.parse_line('user Jimbo')
+			@app.parse_line('add Frank 4111111111111111')
+			@app.parse_line('pay Frank Jimbo $5.00 test')
+			output = capture_stdout do
+				@app.parse_line('comment Frank Jimbo 1 Thanks ')
+      end
+      @app.users['Jimbo'].comments[1].length.should == 1
+  end
 	describe 'other command' do
 		it 'should output an error for a mistyped command' do
 			@app = PaymentApp.new

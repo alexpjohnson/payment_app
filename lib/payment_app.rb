@@ -62,6 +62,21 @@ class PaymentApp
 			when 'feed'
 				users[line_arr[1]].transactions.each{|transaction| puts transaction}
 
+      when 'comment'
+        actor = line_arr[1]
+        target = line_arr[2]
+        payment_id = line_arr[3]
+        note = line_arr[4..line_arr.size].join(' ')
+        users[target].add_comment(actor, payment_id, note)
+
+      when 'feed_expanded'
+        user = users[line_arr[1]]
+        user.comments.each_key do |comment_key|
+            puts user.transactions[comment_key.to_i - 1]
+            #puts user.comments[comment_key]
+            user.comments[comment_key].each {|comment| puts "\t #{comment}"}
+        end
+
 			else
 				puts 'This is not a valid command'
 			end
