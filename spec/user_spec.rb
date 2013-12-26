@@ -8,12 +8,12 @@ describe 'User' do
 		end
 		it 'should say the actor paid the target' do
 			@actor.add_transaction(@actor.name, @target.name, "5.00", 'test')
-			@actor.transactions[0].should == "You paid Jimbo $5.00 for test"
+			@actor.transactions[0].should == "1. You paid Jimbo $5.00 for test"
 		end
 
 		it 'should say the target received payment' do
 			@target.add_transaction(@actor.name, @target.name, "5.00", 'test')
-			@target.transactions[0].should == "Jimbo paid you $5.00 for test"
+			@target.transactions[0].should == "1. Jimbo paid you $5.00 for test"
 		end
 
 		it 'should increase the target balance' do
@@ -21,7 +21,7 @@ describe 'User' do
 			@target.balance.should == 5.0
 		end
 	end
-	
+
 	describe 'add_card' do
 		it 'should add a credit card object' do
 			actor = User.new('Frank')
